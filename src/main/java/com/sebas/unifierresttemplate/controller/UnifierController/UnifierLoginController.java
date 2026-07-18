@@ -1,5 +1,6 @@
 package com.sebas.unifierresttemplate.controller.UnifierController;
 
+import com.sebas.unifierresttemplate.dto.PreFacturaRequest;
 import com.sebas.unifierresttemplate.dto.UnifierLoginDTO;
 import com.sebas.unifierresttemplate.service.UnifierService.UnifierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,10 @@ public class UnifierLoginController {
     @GetMapping("/login")
     public ResponseEntity<UnifierLoginDTO> login() {
         return ResponseEntity.ok(unifierService.login());
+    }
+
+    @GetMapping("/report/invoice-upper")
+    public ResponseEntity<PreFacturaRequest> getInvoiceUpper() {
+        return ResponseEntity.ok(unifierService.getInvoiceUpper());
     }
 }
